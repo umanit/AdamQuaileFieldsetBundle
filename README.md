@@ -11,10 +11,10 @@ Register in `app/AppKernel.php`:
 ```php
 public function registerBundles()
 {
-    $bundles = array(
+    $bundles = [
         // ...
         new AdamQuaile\Bundle\FieldsetBundle\AdamQuaileFieldsetBundle(),
-    );
+    ];
 
     //...
 }
@@ -25,38 +25,40 @@ Use with normal form builder methods:
 
 ```php
 // A fieldset with your fields defined in a callback function
-$builder->add('my_group_example_one', 'fieldset', [
-    'label' => false, // You probably don't want a label as well as a legend.
+$builder->add('my_group_example_one', FieldsetType::class, [
+    'label'  => false, // You probably don't want a label as well as a legend.
     'legend' => 'Your fieldset legend',
-    'fields' => function(FormBuilderInterface $builder) {
-        $builder->add('first_name', 'text', [
-            'label' => 'First Name'
-        ]);
-        $builder->add('last_name', 'text', [
-            'required'  => false,
-            'label'     => 'Surname'
-        ]);
+    'fields' => function (FormBuilderInterface $builder) {
+        $builder
+            ->add('first_name', TextType::class, [
+                'label' => 'First Name',
+            ])
+            ->add('last_name', TextType::class, [
+                'required' => false,
+                'label'    => 'Surname',
+            ])
+        ;
     }
 ]);
 
 // A fieldset with your fields defined in an array
-$builder->add('my_group_example_two', 'fieldset', [
-    'label' => false,
+$builder->add('my_group_example_two', FieldsetType::class, [
+    'label'  => false,
     'legend' => 'Your fieldset legend',
     'fields' => [
         [
-            'name'  => 'first_name',
-            'type'  => 'text',
-            'attr'  => [
-                'label' => 'First Name'
-            ]
+            'name' => 'first_name',
+            'type' => TextType::class,
+            'attr' => [
+                'label' => 'First Name',
+            ],
         ],
         [
-            'name'  => 'last_name',
-            'type'  => 'text',
-            'attr'  => [
-                'required'  => false,
-                'label'     => 'Surname'
+            'name' => 'last_name',
+            'type' => TextType::class,
+            'attr' => [
+                'required' => false,
+                'label'    => 'Surname',
             ]
         ]
     ]
