@@ -11,7 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class FieldsetType extends AbstractType
 {
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -19,8 +19,8 @@ class FieldsetType extends AbstractType
             ->setDefaults([
                 'legend'       => '',
                 'inherit_data' => true,
-                'options'      => array(),
-                'fields'       => array(),
+                'options'      => [],
+                'fields'       => [],
                 'label'        => false,
             ])
             ->addAllowedTypes('fields', ['array', 'callable'])
@@ -59,7 +59,7 @@ class FieldsetType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'fieldset';
     }
