@@ -17,13 +17,14 @@ class FieldsetType extends AbstractType
     {
         $resolver
             ->setDefaults([
-                'legend' => '',
+                'legend'       => '',
                 'inherit_data' => true,
-                'options' => array(),
-                'fields' => array(),
-                'label' => false,
+                'options'      => array(),
+                'fields'       => array(),
+                'label'        => false,
             ])
-            ->addAllowedTypes('fields', ['array', 'callable']);
+            ->addAllowedTypes('fields', ['array', 'callable'])
+        ;
     }
 
     /**
