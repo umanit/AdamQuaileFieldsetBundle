@@ -38,7 +38,11 @@ class FieldsetType extends AbstractType
                 $options['fields']($builder);
             } elseif (is_array($options['fields'])) {
                 foreach ($options['fields'] as $field) {
-                    $builder->add($field['name'], $field['type'], $field['attr']);
+                    $builder->add(
+                        $field['name'],
+                        $field['type'],
+                        isset($field['attr']) ? $field['attr'] : []
+                    );
                 }
             }
         }
