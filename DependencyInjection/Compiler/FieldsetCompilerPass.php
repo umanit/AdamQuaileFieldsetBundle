@@ -12,7 +12,7 @@ class FieldsetCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $templateToImport = 'AdamQuaileFieldsetBundle:Types:fieldset.html.twig';
+        $templateToImport = '@AdamQuaileFieldset/Types/fieldset.html.twig';
 
         $formResources = $container->getParameter('twig.form.resources');
 
